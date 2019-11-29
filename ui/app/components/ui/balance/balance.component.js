@@ -67,11 +67,11 @@ export default class Balance extends PureComponent {
             )
           }
           <div className="balance-display__secondary-balance">
-            <span className="xsp" title={ this.formatXSP(account.xsp) }>
-              {this.formatXSP(account.xsp)}
+            <span className="xsd" title={ this.formatXSD(account.xsd) }>
+              {this.formatXSD(account.xsd)}
             </span>
-            <span className="xsp-suffix">
-              XSP
+            <span className="xsd-suffix">
+              XSD
             </span>
           </div>
         </div>
@@ -79,8 +79,8 @@ export default class Balance extends PureComponent {
     )
   }
 
-  formatXSP(xsp) {
-    return web3.fromWei(xsp, "ether");
+  formatXSD(xsd) {
+    return web3.fromWei(xsd, "ether");
   }
 
   renderTokenBalance () {

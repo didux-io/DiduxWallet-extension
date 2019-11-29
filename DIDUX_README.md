@@ -1,6 +1,6 @@
-# Smilo Readme
+# Didux.io Readme
 
-This readme serves as an extra readme documenting the knowledge gathered by the Smilo team while working on the Smilo Browser Extension. It also contains an overview of the changes made by the Smilo team.
+This readme serves as an extra readme documenting the knowledge gathered by the Didux.io team while working on the Didux.io Browser Extension. It also contains an overview of the changes made by the Didux.io team.
 
 ## Read the docs!
 
@@ -10,9 +10,9 @@ The `./docs` folder contains a lot of information provided by the MetaMask team.
 
 The [MetaMask QA docs](./docs/QA_Guide.md) provides a good starting point on testing before a release. Things to keep in mind though:
 
-- If you want to test deployment of a dapp you can use [the Smilo Remix website](https://remix.smilo.network). 
-- You can replace MEW (My Ether Wallet) with [the Smilo Wallet](https://smilowallet.io).
-- You can replace references to various Ethereum test nets simply with the Smilo Test net.
+- If you want to test deployment of a dapp you can use [the Didux.io Remix website](https://remix.didux.network). 
+- You can replace MEW (My Ether Wallet) with [the Didux.io Wallet](https://diduxwallet.io).
+- You can replace references to various Ethereum test nets simply with the Didux.io Test net.
 
 ## Creating a new release
 
@@ -56,9 +56,9 @@ This is most likely an issue with MetaMask as it has always been unreliable.
 
 All translations other than English have been removed. We've decided to do this because we could not confidently update the translations in all supported languages. Luckily we have not added any translation strings so if, in the future, we decide to add other languages we can easily do so by using the original translation files in the MetaMask repo.
 
-## Changes made by the Smilo team
+## Changes made by the Didux.io team
 
-We've made several changes to integrate this browser plugin with the Smilo Blockchain. We'll discuss these changes in this chapter on a per-file basis.
+We've made several changes to integrate this browser plugin with the Didux.io Blockchain. We'll discuss these changes in this chapter on a per-file basis.
 
 This is not a comprehensive list of changes! Things will be missing! Please use the git commit log and git blame to get a better understanding of all changes.
 
@@ -72,15 +72,15 @@ Changed manifest so the store listing shows the correct information. Also change
 
 #### ./app/_locales/en/messages.json
 
-Updates Ethereum references to Smilo.
+Updates Ethereum references to Didux.io.
 
 #### ./app/scripts/controllers/currency.js
 
-Changed Ethereum references to Smilo.
+Changed Ethereum references to Didux.io.
 
 #### ./app/scripts/controllers/blacklist.js
 
-Apart from the official blacklist maintained by MetaMask we've also included our own custom blacklist. This blacklist can be found [here](https://github.com/Smilo-platform/SmiloWallet-extension/blob/develop/app/phishing-config.json).
+Apart from the official blacklist maintained by MetaMask we've also included our own custom blacklist. This blacklist can be found [here](https://raw.githubusercontent.com/didux-io/DiduxWallet-extension/develop/app/phishing-config.json).
 
 #### ./app/scripts/controllers/network/enum.js
 
@@ -92,61 +92,61 @@ _This is the place to change the default rpc end point should it ever change aga
 
 Changed the way a connection with the main net and test net is made. In MetaMask the Infura API is used. We've removed this code and replaced it with a plain RPC target.
 
-Also changes Ethereum references to Smilo.
+Also changes Ethereum references to Didux.io.
 
 #### ./app/scripts/inpage.js
 
-Changed the way the plugin is exposed on a web page. MetaMask exposes the web3 client as a global variable named `ethereum` on every web page. We have changed this so it is exposed as a global variable named `smilo`. This way we prevent conflicts with the MetaMask plugin.
+Changed the way the plugin is exposed on a web page. MetaMask exposes the web3 client as a global variable named `ethereum` on every web page. We have changed this so it is exposed as a global variable named `diduxWallet`. This way we prevent conflicts with the MetaMask plugin.
 
 #### ./app/scripts/lib/account-tracker.js
 
-Added support for SmiloPay. At the time of writing the used web3 library did not yet support this so instead we've fallen back on a plain HTTP POST call.
+Added support for DiddyPay. At the time of writing the used web3 library did not yet support this so instead we've fallen back on a plain HTTP POST call.
 
 #### ./app/scripts/lib/auto-reload.js
 
-Changed the global `web3` variable to `smiloWeb3` to prevent conflicts with MetaMask.
+Changed the global `web3` variable to `diduxWeb3` to prevent conflicts with MetaMask.
 
 #### ./app/scripts/lib
 
-Changed the used keyring controller to the Smilo version (also see `Node module changes`).
+Changed the used keyring controller to the Didux.io version (also see `Node module changes`).
 
 #### ./app/scripts/metamask-controller.js
 
-Changed the used keyring controller to the Smilo version (also see `Node module changes`).
+Changed the used keyring controller to the Didux.io version (also see `Node module changes`).
 
 #### ./app/scripts/platforms/extension.js
 
-Changed the block exporer link to refer to the Smilo main or test net explorer.
+Changed the block exporer link to refer to the Didux.io main or test net explorer.
 
 ### UI changes
 
 #### ./ui/app/components/app/dropdowns/token-menu-dropdown.js
 
-Changed the block exporer link to refer to the Smilo main or test net explorer.
+Changed the block exporer link to refer to the Didux.io main or test net explorer.
 
 #### ./ui/app/components/app/modals/account-details-modal/account-details-modal.component.js
 
-Changed the block exporer link to refer to the Smilo main or test net explorer.
+Changed the block exporer link to refer to the Didux.io main or test net explorer.
 
 #### ./ui/app/components/app/modals/confirm-remove-account/confirm-remove-account.component.js
 
-Changed the block exporer link to refer to the Smilo main or test net explorer.
+Changed the block exporer link to refer to the Didux.io main or test net explorer.
 
 #### ./ui/app/components/app/transaction-activity-log/transaction-activity-log.component.js
 
-Changed the block exporer link to refer to the Smilo main or test net explorer.
+Changed the block exporer link to refer to the Didux.io main or test net explorer.
 
 #### ./ui/app/components/app/transaction-list-item-details/transaction-list-item-details.component.js
 
-Changed the block exporer link to refer to the Smilo main or test net explorer.
+Changed the block exporer link to refer to the Didux.io main or test net explorer.
 
 #### ./ui/app/components/ui/jazzicon/jazzicon.component.js
 
-Changed the used account icon generator library to the Smilo version (also see `Node module changes`).
+Changed the used account icon generator library to the Didux.io version (also see `Node module changes`).
 
 #### ./ui/app/pages/create-account/connect-hardware
 
-Changed the block exporer link to refer to the Smilo main or test net explorer.
+Changed the block exporer link to refer to the Didux.io main or test net explorer.
 
 #### ./ui/app/pages/first-time-flow/create-password/import-with-seed-phrase/import-with-seed-phrase.component.js
 
@@ -166,19 +166,19 @@ Added logic to return the correct explorer link.
 
 #### ./ui/app/components/app/send/account-list-item/account-list-item.component.js
 
-Added amount of XSP account has.
+Added amount of XSD account has.
 
 #### ./ui/app/components/app/transaction-view-balance/transaction-view-balance.component.js
 
-Added amount of XSP account has.
+Added amount of XSD account has.
 
 #### ./ui/app/components/app/transaction-view-balance/transaction-view-balance.container.js
 
-Read XSP from state so component can use this value.
+Read XSD from state so component can use this value.
 
 #### ./ui/app/components/ui/balance/balance.component.js
 
-Added amount of XSP account has.
+Added amount of XSD account has.
 
 ## Build setup changes
 
@@ -190,16 +190,16 @@ We've forked and changed several modules.
 
 ### @smilo-platform/smiloicon
 
-Changed the account icon library so icons with Smilo colors are generated.
+Changed the account icon library so icons with Didux.io colors are generated.
 
 Forked repo found [here](https://github.com/Smilo-platform/SmiloIcon).
 
 ### @smilo-platform/eth-keyring-controller
 
-Changed the keyring controller library so private keys using the smilo derivation path are generated.
+Changed the keyring controller library so private keys using the didux.io derivation path are generated.
 
 Forked repo found [here](https://github.com/Smilo-platform/KeyringController).
 
 ## Other changes
 
-We've changed logos and images. Original file names have been retained. That's why you might find a file named `eth.png` which shows a Smilo logo. This makes it easier to merge future work from the MetaMask team in our browser as we change less.
+We've changed logos and images. Original file names have been retained. That's why you might find a file named `eth.png` which shows a Didux.io logo. This makes it easier to merge future work from the MetaMask team in our browser as we change less.

@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import TransactionBreakdown from '../transaction-breakdown'
 import Button from '../../ui/button'
 import Tooltip from '../../ui/tooltip'
-const smiloExplorerLinker = require("../../../../lib/smilo-explorer-linker")
+const diduxExplorerLinker = require("../../../../lib/didux-explorer-linker")
 
 class TransactionListItemDetails extends PureComponent {
   static contextTypes = {
@@ -34,7 +34,7 @@ class TransactionListItemDetails extends PureComponent {
     const { transactionGroup: { primaryTransaction }, provider } = this.props
     const { hash } = primaryTransaction
 
-    const url = smiloExplorerLinker.createTxLink(hash, provider.type)
+    const url = diduxExplorerLinker.createTxLink(hash, provider.type)
 
     this.context.metricsEvent({
       eventOpts: {

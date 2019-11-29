@@ -24,7 +24,7 @@ export default class EndOfFlowScreen extends PureComponent {
         <div className="app-header__logo-container">
           <img
             className="app-header__metafox-logo app-header__metafox-logo--horizontal"
-            src="/images/logo/smilowallet-extension.svg"
+            src="/images/logo/diduxwallet-extension.png"
             height={30}
           />
         </div>
@@ -54,7 +54,7 @@ export default class EndOfFlowScreen extends PureComponent {
           { '• ' + t('endOfFlowMessage7') }
         </div>
         <div className="first-time-flow__text-block end-of-flow__text-4">
-          The Smilo Browser Extension cannot recover your seedphrase. <a
+          The Didux.io Browser Extension cannot recover your seedphrase. <a
             href="https://metamask.zendesk.com/hc/en-us/articles/360015489591-Basic-Safety-Tips"
             target="_blank"
             rel="noopener noreferrer"

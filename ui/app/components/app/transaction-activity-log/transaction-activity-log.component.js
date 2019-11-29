@@ -6,7 +6,7 @@ import { formatDate } from '../../../helpers/utils/util'
 import TransactionActivityLogIcon from './transaction-activity-log-icon'
 import { CONFIRMED_STATUS } from './transaction-activity-log.constants'
 import { connect } from 'react-redux'
-const smiloExplorerLinker = require("../../../../lib/smilo-explorer-linker");
+const diduxExplorerLinker = require("../../../../lib/didux-explorer-linker");
 
 class TransactionActivityLog extends PureComponent {
   static contextTypes = {
@@ -29,7 +29,7 @@ class TransactionActivityLog extends PureComponent {
   handleActivityClick = hash => {
     const { provider } = this.props
 
-    const url = smiloExplorerLinker.createTxLink(hash, provider.type)
+    const url = diduxExplorerLinker.createTxLink(hash, provider.type)
 
     global.platform.openWindow({ url: url })
   }

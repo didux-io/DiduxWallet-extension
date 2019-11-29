@@ -98,7 +98,7 @@ class ExtensionPlatform {
 
     console.log(providerType);
 
-    const explorerUrl = `https://${ this._getExplorerLinkPrefix(providerType) }explorer.smilo.network/tx/${txMeta.hash}`
+    const explorerUrl = `https://${ this._getExplorerLinkPrefix(providerType) }explorer.didux.network/tx/${txMeta.hash}`
 
     this._showNotification(title, message, explorerUrl)
   }

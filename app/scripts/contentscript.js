@@ -124,7 +124,7 @@ function listenForProviderRequest () {
   window.addEventListener('message', ({ source, data }) => {
     if (source !== window || !data || !data.type) { return }
     switch (data.type) {
-      case 'SMILO_ENABLE_PROVIDER':
+      case 'DIDUX_ENABLE_PROVIDER':
         extension.runtime.sendMessage({
           action: 'init-provider-request',
           force: data.force,
@@ -133,7 +133,7 @@ function listenForProviderRequest () {
           siteTitle: getSiteName(source),
         })
         break
-      case 'SMILO_IS_APPROVED':
+      case 'DIDUX_IS_APPROVED':
         extension.runtime.sendMessage({
           action: 'init-is-approved',
           origin: source.location.hostname,
@@ -151,17 +151,17 @@ function listenForProviderRequest () {
     switch (action) {
       case 'approve-provider-request':
         isEnabled = true
-        window.postMessage({ type: 'smiloprovider', selectedAddress }, '*')
+        window.postMessage({ type: 'diduxprovider', selectedAddress }, '*')
         break
       case 'approve-legacy-provider-request':
         isEnabled = true
-        window.postMessage({ type: 'smiloroviderlegacy', selectedAddress }, '*')
+        window.postMessage({ type: 'diduxroviderlegacy', selectedAddress }, '*')
         break
       case 'reject-provider-request':
-        window.postMessage({ type: 'smiloprovider', error: 'User denied account authorization' }, '*')
+        window.postMessage({ type: 'diduxprovider', error: 'User denied account authorization' }, '*')
         break
       case 'answer-is-approved':
-        window.postMessage({ type: 'smiloisapproved', isApproved, caching }, '*')
+        window.postMessage({ type: 'diduxisapproved', isApproved, caching }, '*')
         break
       case 'answer-is-unlocked':
         window.postMessage({ type: 'sweisunlocked', isUnlocked }, '*')
@@ -194,7 +194,7 @@ function checkPrivacyMode () {
  * @param {Error} err Stream connection error
  */
 function logStreamDisconnectWarning (remoteLabel, err) {
-  let warningMsg = `SmiloWalletExtensionContentscript - lost connection to ${remoteLabel}`
+  let warningMsg = `DiduxWalletExtensionContentscript - lost connection to ${remoteLabel}`
   if (err) warningMsg += '\n' + err.stack
   console.warn(warningMsg)
 }

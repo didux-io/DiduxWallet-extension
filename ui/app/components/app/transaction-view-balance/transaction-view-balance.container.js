@@ -21,13 +21,13 @@ const mapStateToProps = state => {
   const { metamask: { network } } = state
   const accounts = getMetaMaskAccounts(state)
   const account = accounts[selectedAddress]
-  const { balance, xsp } = account
+  const { balance, xsd } = account
 
   return {
     selectedToken: getSelectedToken(state),
     network,
     balance,
-    xsp,
+    xsd,
     nativeCurrency: getNativeCurrency(state),
     assetImage: getSelectedTokenAssetImage(state),
     balanceIsCached: isBalanceCached(state),

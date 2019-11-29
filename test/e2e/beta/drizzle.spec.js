@@ -265,7 +265,7 @@ describe('MetaMask', function () {
       windowHandles = await driver.getAllWindowHandles()
 
       extension = windowHandles[0]
-      popup = await switchToWindowWithTitle(driver, 'SmiloWallet Extension', windowHandles)
+      popup = await switchToWindowWithTitle(driver, 'Didux.io Extension', windowHandles)
       dapp = windowHandles.find(handle => handle !== extension && handle !== popup)
 
       await delay(regularDelayMs)

@@ -5,10 +5,10 @@ module.exports = function (address, network) {
   let link
   switch (net) {
     case MAINNET_CODE: // main net
-      link = `https://explorer.smilo.network/addr/${address}`
+      link = `https://explorer.didux.network/addr/${address}`
       break
     case TESTNET_CODE: // test net
-      link = `https://testnet-explorer.smilo.network/addr/${address}`
+      link = `https://testnet-explorer.didux.network/addr/${address}`
       break
     default:
       link = ''

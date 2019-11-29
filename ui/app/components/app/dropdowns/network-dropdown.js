@@ -250,7 +250,7 @@ NetworkDropdown.prototype.renderCommonRpc = function (rpcListDetail, provider) {
 
   return reversedRpcListDetail.map((entry) => {
     const rpc = entry.rpcUrl
-    const ticker = entry.ticker || 'XSM'
+    const ticker = entry.ticker || 'XD'
     const nickname = entry.nickname || ''
     const currentRpcTarget = provider.type === 'rpc' && rpc === provider.rpcTarget
 

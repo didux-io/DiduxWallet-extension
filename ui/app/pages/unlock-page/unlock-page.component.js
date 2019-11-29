@@ -143,7 +143,7 @@ export default class UnlockPage extends Component {
       <div className="unlock-page__container">
         <div className="unlock-page">
           <div className="unlock-page__mascot-container">
-            <img src="./images/smilo_logo.png"/>
+            <img src="./images/didux_logo.png"/>
           </div>
           <h1 className="unlock-page__title">
             { t('welcomeBack') }
