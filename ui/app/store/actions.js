@@ -486,8 +486,6 @@ function createNewVaultAndKeychain (password) {
           return reject(err)
         }
 
-        log.debug(`background.placeSeedWords`)
-
         background.placeSeedWords((err) => {
           if (err) {
             dispatch(actions.displayWarning(err.message))

@@ -6,7 +6,7 @@ const {
   KOVAN_CODE,
 } = require('../../../../../app/scripts/controllers/network/enums')
 
-const KeyringController = require('@smilo-platform/eth-keyring-controller')
+const KeyringController = require('@didux-io/didux-keyring-controller')
 
 describe('Recipient Blacklist Checker', function () {
 

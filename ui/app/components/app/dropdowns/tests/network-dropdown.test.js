@@ -66,7 +66,7 @@ describe('Network Dropdown', () => {
     })
 
     it('checks background color for first NetworkDropdownIcon', () => {
-      assert.equal(wrapper.find(NetworkDropdownIcon).at(0).prop('backgroundColor'), '#29B6AF') // Main Ethereum Network Teal
+      assert.equal(wrapper.find(NetworkDropdownIcon).at(0).prop('backgroundColor'), '#F4623A') // Main Ethereum Network Teal
     })
 
     it('checks background color for second NetworkDropdownIcon', () => {
@@ -74,7 +74,7 @@ describe('Network Dropdown', () => {
     })
 
     it('checks background color for third NetworkDropdownIcon', () => {
-      assert.equal(wrapper.find(NetworkDropdownIcon).at(2).prop('backgroundColor'), '#7057ff') // Kovan Purple
+      assert.equal(wrapper.find(NetworkDropdownIcon).at(2).prop('backgroundColor'), '#aa4428') // Kovan Purple
     })
 
     it('checks background color for fourth NetworkDropdownIcon', () => {

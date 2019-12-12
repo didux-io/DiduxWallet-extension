@@ -29,16 +29,16 @@
 }
 
 .btn-primary {
-  color: $curious-blue;
+  color: $curious-orange;
   border: 2px solid $spindle;
 
   &:active {
     background: $zumthor;
-    border-color: $curious-blue;
+    border-color: $curious-orange;
   }
 
   &:hover {
-    border-color: $curious-blue;
+    border-color: $curious-orange;
   }
 }
 
@@ -72,12 +72,12 @@
 
 .btn-confirm {
   color: $white;
-  border: 2px solid $curious-blue;
-  background-color: $curious-blue;
+  border: 2px solid $curious-orange;
+  background-color: $curious-orange;
 }
 
 .btn-raised {
-  color: $curious-blue;
+  color: $curious-orange;
   background-color: $white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
   padding: 6px;
@@ -95,7 +95,7 @@
   font-size: 1.25rem;
   font-weight: 500;
   transition: 200ms ease-in-out;
-  background-color: rgba(25, 131, 179, 0.9);
+  background-color: rgba(244,98,58, 0.9);
   border-radius: 0;
 }
 
@@ -111,7 +111,7 @@
   background: $white;
   text-align: center;
   padding: .8rem 1rem;
-  color: $curious-blue;
+  color: $curious-orange;
   border: 2px solid $spindle;
   border-radius: 4px;
   font-size: .85rem;
@@ -119,7 +119,7 @@
   transition: border-color .3s ease;
 
   &:hover {
-    border-color: $curious-blue;
+    border-color: $curious-orange;
   }
 
   &--disabled,
@@ -184,8 +184,8 @@ input[type="submit"][disabled] {
 
 button.primary {
   padding: 8px 12px;
-  background: #1983B3;
-  box-shadow: 0 3px 6px rgba(25, 131, 179, .36);
+  background: #F4623A;
+  box-shadow: 0 3px 6px rgba(244,98,58, .36);
   color: $white;
   font-size: 1.1em;
   font-family: Roboto;
@@ -195,7 +195,7 @@ button.primary {
 .btn-light {
   padding: 8px 12px;
   // background: #FFFFFF; // $bg-white
-  box-shadow: 0 3px 6px rgba(25, 131, 179, .36);
+  box-shadow: 0 3px 6px rgba(244,98,58, .36);
   color: #585d67; // TODO: make reusable light button color
   font-size: 1.1em;
   font-family: Roboto;

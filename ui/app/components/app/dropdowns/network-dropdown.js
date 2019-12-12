@@ -127,7 +127,7 @@ NetworkDropdown.prototype.render = function () {
       [
         providerType === 'mainnet' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
         h(NetworkDropdownIcon, {
-          backgroundColor: '#29B6AF',
+          backgroundColor: '#F4623A',
           isSelected: providerType === 'mainnet',
         }),
         h('span.network-name-item', {
@@ -149,7 +149,7 @@ NetworkDropdown.prototype.render = function () {
       [
         providerType === 'testnet' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
         h(NetworkDropdownIcon, {
-          backgroundColor: '#7057ff',
+          backgroundColor: '#aa4428',
           isSelected: providerType === 'testnet',
         }),
         h('span.network-name-item', {

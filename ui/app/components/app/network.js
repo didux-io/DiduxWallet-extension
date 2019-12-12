@@ -75,8 +75,8 @@ Network.prototype.render = function () {
           case 'test-network':
             return h('.network-indicator', [
               h(NetworkDropdownIcon, {
-                backgroundColor: '#7057ff', // $blue-lagoon
-                nonSelectBackgroundColor: '#7057ff',
+                backgroundColor: '#aa4428', // $blue-lagoon
+                nonSelectBackgroundColor: '#aa4428',
                 loading: networkNumber === 'loading',
               }),
               h('.network-name', context.t('testnet')),

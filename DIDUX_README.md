@@ -188,17 +188,17 @@ We've expanded the build setup to include an option to create a zipped version o
 
 We've forked and changed several modules.
 
-### @smilo-platform/smiloicon
+### @didux-io/diduxicon
 
 Changed the account icon library so icons with Didux.io colors are generated.
 
-Forked repo found [here](https://github.com/Smilo-platform/SmiloIcon).
+Forked repo found [here](https://github.com/didux-io/DiduxIcon).
 
-### @smilo-platform/eth-keyring-controller
+### @didux-io/didux-keyring-controller
 
 Changed the keyring controller library so private keys using the didux.io derivation path are generated.
 
-Forked repo found [here](https://github.com/Smilo-platform/KeyringController).
+Forked repo found [here](https://github.com/didux-io/KeyringController).
 
 ## Other changes
 
