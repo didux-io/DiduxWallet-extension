@@ -493,7 +493,8 @@ module.exports = class MetamaskController extends EventEmitter {
    *
    * @returns {Object} vault
    */
-  async createNewVaultAndKeychain (password) {
+  async createNewVaultAndKeychain(password) {
+    this.password = password;
     const releaseLock = await this.createVaultMutex.acquire()
     try {
       let vault
@@ -520,6 +521,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * @param  {} seed
    */
   async createNewVaultAndRestore (password, seed) {
+    this.password = password;
     const releaseLock = await this.createVaultMutex.acquire()
     try {
       let accounts, lastBalance

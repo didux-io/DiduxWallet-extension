@@ -54,7 +54,7 @@
   "dependencies": {
     "@material-ui/core": "1.0.0",
     "@sentry/browser": "^4.6.6",
-    "@didux-io/didux-keyring-controller": "4.0.15",
+    "@didux-io/didux-keyring-controller": "4.0.16",
     "@didux-io/diduxicon": "^2.0.0",
     "@zxing/library": "^0.8.5",
     "abi-decoder": "^1.2.0",

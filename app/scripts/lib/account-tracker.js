@@ -71,7 +71,7 @@ class AccountTracker {
 
   _extractNetworkUrl(provider) {
     if(!provider) {
-      console.warn("Could not read provider at this time. Is SWE not initialized yet?")
+      console.warn("Could not read provider at this time. Is DWE not initialized yet?")
       return null;
     }
     

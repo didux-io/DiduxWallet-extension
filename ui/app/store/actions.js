@@ -474,7 +474,7 @@ function createNewVaultAndRestore (password, seed) {
   }
 }
 
-function createNewVaultAndKeychain (password) {
+function createNewVaultAndKeychain(password) {
   return dispatch => {
     dispatch(actions.showLoadingIndication())
     log.debug(`background.createNewVaultAndKeychain`)
@@ -555,13 +555,12 @@ function submitPassword (password) {
   })
 }
 
-function createNewVault (password) {
+function createNewVault(password) {
   return new Promise((resolve, reject) => {
     background.createNewVaultAndKeychain(password, error => {
       if (error) {
         return reject(error)
       }
-
       resolve(true)
     })
   })

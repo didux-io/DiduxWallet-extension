@@ -38,13 +38,13 @@ function onMessage (messageType, callback, remove) {
 //
 
 // setup background connection
-var sweStream = new LocalMessageDuplexStream({
-  name: 'swe_inpage',
-  target: 'swe_contentscript',
+var dweStream = new LocalMessageDuplexStream({
+  name: 'dwe_inpage',
+  target: 'dwe_contentscript',
 })
 
 // compose the inpage provider
-var inpageProvider = new MetamaskInpageProvider(sweStream)
+var inpageProvider = new MetamaskInpageProvider(dweStream)
 
 // set a high max listener count to avoid unnecesary warnings
 inpageProvider.setMaxListeners(100)
@@ -136,7 +136,7 @@ inpageProvider._diduxWalletExtension = new Proxy({
         resolve(!!isUnlocked)
       }
       onMessage('sweisunlocked', isUnlockedHandle, true)
-      window.postMessage({ type: 'SWE_IS_UNLOCKED' }, '*')
+      window.postMessage({ type: 'DWE_IS_UNLOCKED' }, '*')
     })
   },
 }, {
