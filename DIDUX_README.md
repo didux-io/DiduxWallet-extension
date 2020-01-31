@@ -166,19 +166,19 @@ Added logic to return the correct explorer link.
 
 #### ./ui/app/components/app/send/account-list-item/account-list-item.component.js
 
-Added amount of XSD account has.
+Added amount of XP account has.
 
 #### ./ui/app/components/app/transaction-view-balance/transaction-view-balance.component.js
 
-Added amount of XSD account has.
+Added amount of XP account has.
 
 #### ./ui/app/components/app/transaction-view-balance/transaction-view-balance.container.js
 
-Read XSD from state so component can use this value.
+Read XP from state so component can use this value.
 
 #### ./ui/app/components/ui/balance/balance.component.js
 
-Added amount of XSD account has.
+Added amount of XP account has.
 
 ## Build setup changes
 

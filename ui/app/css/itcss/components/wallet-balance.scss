@@ -44,7 +44,7 @@ $wallet-balance-breakpoint-range: "screen and (min-width: #{$break-large}) and (
       display: inline-flex;
       font-size: 0.8rem;
 
-      .xsd {
+      .xp {
         max-width: 60px;
         @media screen and (min-width: 1700px) {
           max-width: 120px;
@@ -55,7 +55,7 @@ $wallet-balance-breakpoint-range: "screen and (min-width: #{$break-large}) and (
         overflow: hidden;
       }
   
-      .xsd-suffix {
+      .xp-suffix {
         margin-left: 5px;
       }
     }

@@ -44,7 +44,7 @@ export default class AccountListItem extends Component {
       showFiat,
     } = this.props
 
-    const { name, address, balance, xsd } = account || {}
+    const { name, address, balance, xp } = account || {}
 
     return (<div
       className={`account-list-item ${className}`}
@@ -107,8 +107,8 @@ export default class AccountListItem extends Component {
                     )
                   }
                   <div className="currency-container__secondary-balance" style={{display: "flex", 'align-items': 'center'}}>
-                    <span className="xsd" style={{display: "inline-block", maxWidth: "60px", textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden"}} title={ this.formatXSD(xsd) }>{ this.formatXSD(xsd) }</span>
-                    <span className="xsd-suffix"> XSD</span>
+                    <span className="xp" style={{display: "inline-block", maxWidth: "60px", textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden"}} title={ this.formatXP(xp) }>{ this.formatXP(xp) }</span>
+                    <span className="xp-suffix"> XP</span>
                   </div>
               </div>
             </div>
@@ -119,7 +119,7 @@ export default class AccountListItem extends Component {
     </div>)
   }
 
-  formatXSD(xsd) {
-    return web3.fromWei(xsd, "ether");
+  formatXP(xp) {
+    return web3.fromWei(xp, "ether");
   }
 }

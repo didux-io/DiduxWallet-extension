@@ -245,10 +245,10 @@ class AccountTracker {
   async _updateAccount (address) {
     // query balance
     const balance = await this._query.getBalance(address)
-    // query xsd
-    const xsd = await this._getXSDBalance(address)
+    // query xp
+    const xp = await this._getXPBalance(address)
 
-    const result = { address, balance, xsd }
+    const result = { address, balance, xp }
     // update accounts state
     const { accounts } = this.store.getState()
     // only populate if the entry is still present
@@ -257,7 +257,7 @@ class AccountTracker {
     this.store.updateState({ accounts })
   }
 
-  async _getXSDBalance (address) {
+  async _getXPBalance (address) {
     if(!this._rpcTarget) {
       console.warn('No rpc target defined, could not read XPS')
       return "0"
