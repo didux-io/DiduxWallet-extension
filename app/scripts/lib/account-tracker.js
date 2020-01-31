@@ -15,12 +15,14 @@ const request = require('request');
 const {
   MAINNET,
   TESTNET,
+  SMILOMAINNET,
   MAINNET_CODE,
   SMILO_MAINNET_CODE,
   TESTNET_CODE,
   LOCALHOST,
   MAINNET_END_POINT,
-  TESTNET_END_POINT
+  TESTNET_END_POINT,
+  SMILO_MAINNET_END_POINT
 } = require("../controllers/network/enums")
 const Web3 = require('web3')
 const { SINGLE_CALL_BALANCES_ABI } = require('../controllers/network/contract-addresses')
@@ -82,6 +84,9 @@ class AccountTracker {
       }
       case(TESTNET): {
         return TESTNET_END_POINT
+      }
+      case(SMILOMAINNET): {
+        return SMILO_MAINNET_END_POINT
       }
       case(LOCALHOST): {
         return "http://localhost:8545"
@@ -259,7 +264,7 @@ class AccountTracker {
 
   async _getXPBalance (address) {
     if(!this._rpcTarget) {
-      console.warn('No rpc target defined, could not read XPS')
+      console.warn('No rpc target defined, could not read XP')
       return "0"
     }
 
