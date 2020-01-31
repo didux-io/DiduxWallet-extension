@@ -98,9 +98,15 @@ class ExtensionPlatform {
 
     console.log(providerType);
 
-    const explorerUrl = `https://${ this._getExplorerLinkPrefix(providerType) }explorer.didux.network/tx/${txMeta.hash}`
+    if (providerType === 'smilomainnet') {
+      const explorerUrl = `https://${ this._getExplorerLinkPrefix(providerType) }explorer.smilo.network/tx/${txMeta.hash}`
 
-    this._showNotification(title, message, explorerUrl)
+      this._showNotification(title, message, explorerUrl)
+    } else {
+      const explorerUrl = `https://${ this._getExplorerLinkPrefix(providerType) }explorer.didux.network/tx/${txMeta.hash}`
+
+      this._showNotification(title, message, explorerUrl)
+    }
   }
 
   _showFailedTransaction (txMeta, errorMessage) {

@@ -417,6 +417,9 @@
   "customRPC": {
     "message": "Custom RPC"
   },
+  "smilo": {
+    "message": "Smilo Mainnet"
+  },
   "decimalsMustZerotoTen": {
     "message": "Decimals must be at least 0, and not over 36."
   },
@@ -1329,6 +1332,9 @@
   },
   "sentEther": {
     "message": "sent Didux.io"
+  },
+  "sentSmilo": {
+    "message": "sent Smilo"
   },
   "sentTokens": {
     "message": "sent tokens"

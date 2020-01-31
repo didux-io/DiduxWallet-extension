@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import {
   MAINNET_CODE,
-  TESTNET_CODE
+  TESTNET_CODE,
+  SMILO_MAINNET_CODE
 } from '../../../../../app/scripts/controllers/network/enums'
 
 const networkToClassHash = {
   [MAINNET_CODE]: 'mainnet',
-  [TESTNET_CODE]: 'testnet'
+  [TESTNET_CODE]: 'testnet',
+  [SMILO_MAINNET_CODE]: 'smilomainnet'
 }
 
 export default class NetworkDisplay extends Component {

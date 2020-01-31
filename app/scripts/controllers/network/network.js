@@ -18,14 +18,18 @@ const {
   MAINNET,
   TESTNET,
   LOCALHOST,
+  SMILOMAINNET,
   MAINNET_CODE,
-  MAINNET_DISPLAY_NAME,
   TESTNET_CODE,
+  MAINNET_DISPLAY_NAME,
+  SMILO_MAINNET_DISPLAY_NAME,
   TESTNET_DISPLAY_NAME,
   MAINNET_END_POINT,
-  TESTNET_END_POINT
+  TESTNET_END_POINT,
+  SMILO_MAINNET_END_POINT,
+  SMILO_MAINNET_CODE
 } = require('./enums')
-const DIDUX_PROVIDER_TYPES = [MAINNET, TESTNET]
+const DIDUX_PROVIDER_TYPES = [MAINNET, TESTNET, SMILOMAINNET]
 
 const env = process.env.METAMASK_ENV
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
@@ -179,6 +183,10 @@ module.exports = class NetworkController extends EventEmitter {
         }
         case(TESTNET): {
           this._configureStandardProvider({ rpcUrl: TESTNET_END_POINT, chainId: TESTNET_CODE, ticker: "XD", nickname: TESTNET_DISPLAY_NAME })
+          break
+        }
+        case(SMILOMAINNET): {
+          this._configureStandardProvider({ rpcUrl: SMILO_MAINNET_END_POINT, chainId: SMILO_MAINNET_CODE, ticker: "XSM", nickname: SMILO_MAINNET_DISPLAY_NAME })
           break
         }
       }

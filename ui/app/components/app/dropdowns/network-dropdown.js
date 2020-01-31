@@ -163,6 +163,28 @@ NetworkDropdown.prototype.render = function () {
     h(
       DropdownMenuItem,
       {
+        key: 'smilomainnet',
+        closeMenu: () => this.props.hideNetworkDropdown(),
+        onClick: () => this.handleClick('smilomainnet'),
+        style: dropdownMenuItemStyle,
+      },
+      [
+        providerType === 'smilomainnet' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
+        h(NetworkDropdownIcon, {
+          backgroundColor: '#0f728d',
+          isSelected: providerType === 'smilomainnet',
+        }),
+        h('span.network-name-item', {
+          style: {
+            color: providerType === 'smilomainnet' ? '#ffffff' : '#9b9b9b',
+          },
+        }, this.context.t('smilo')),
+      ]
+    ),
+
+    h(
+      DropdownMenuItem,
+      {
         key: 'default',
         closeMenu: () => this.props.hideNetworkDropdown(),
         onClick: () => this.handleClick('localhost'),

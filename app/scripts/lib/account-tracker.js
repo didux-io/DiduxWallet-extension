@@ -16,6 +16,7 @@ const {
   MAINNET,
   TESTNET,
   MAINNET_CODE,
+  SMILO_MAINNET_CODE,
   TESTNET_CODE,
   LOCALHOST,
   MAINNET_END_POINT,
@@ -221,6 +222,10 @@ class AccountTracker {
       break
 
       case TESTNET_CODE:
+      await Promise.all(addresses.map(this._updateAccount.bind(this)))
+      break
+
+      case SMILO_MAINNET_CODE:
       await Promise.all(addresses.map(this._updateAccount.bind(this)))
       break
 

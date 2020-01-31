@@ -15,7 +15,7 @@ module.exports = connect()(Network)
 
 inherits(Network, Component)
 
-function Network () {
+function Network() {
   Component.call(this)
 }
 
@@ -41,6 +41,9 @@ Network.prototype.render = function () {
   } else if (providerName === 'testnet') {
     hoverText = context.t('testnet')
     iconName = 'test-network'
+  } else if (providerName === 'smilomainnet') {
+    hoverText = context.t('smilo')
+    iconName = 'smilo-network'
   } else {
     hoverText = providerName
     iconName = 'private-network'
@@ -51,7 +54,8 @@ Network.prototype.render = function () {
       className: classnames({
         'network-component--disabled': this.props.disabled,
         'main-network': providerName === 'mainnet',
-        'test-network': providerName === 'testnet'
+        'test-network': providerName === 'testnet',
+        'smilo-network': providerName === 'smilomainnet'
       }),
       title: hoverText,
       onClick: (event) => {
@@ -82,31 +86,41 @@ Network.prototype.render = function () {
               h('.network-name', context.t('testnet')),
               h('i.fa.fa-chevron-down.fa-lg.network-caret'),
             ])
+          case 'smilo-network':
+            return h('.network-indicator', [
+              h(NetworkDropdownIcon, {
+                backgroundColor: '#0f728d', // $blue-lagoon
+                nonSelectBackgroundColor: '#aa4428',
+                loading: networkNumber === 'loading',
+              }),
+              h('.network-name', context.t('smilo')),
+              h('i.fa.fa-chevron-down.fa-lg.network-caret'),
+            ])
           default:
             return h('.network-indicator', [
               networkNumber === 'loading'
-              ? h('span.pointer.network-indicator', {
-                style: {
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'row',
-                },
-                onClick: (event) => this.props.onClick(event),
-              }, [
-                h('img', {
-                  title: context.t('attemptingConnect'),
+                ? h('span.pointer.network-indicator', {
                   style: {
-                    width: '27px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'row',
                   },
-                  src: 'images/loading.svg',
+                  onClick: (event) => this.props.onClick(event),
+                }, [
+                  h('img', {
+                    title: context.t('attemptingConnect'),
+                    style: {
+                      width: '27px',
+                    },
+                    src: 'images/loading.svg',
+                  }),
+                ])
+                : h('i.fa.fa-question-circle.fa-lg', {
+                  style: {
+                    margin: '10px',
+                    color: 'rgb(125, 128, 130)',
+                  },
                 }),
-              ])
-              : h('i.fa.fa-question-circle.fa-lg', {
-                style: {
-                  margin: '10px',
-                  color: 'rgb(125, 128, 130)',
-                },
-              }),
 
               h('.network-name', providerNick || context.t('privateNetwork')),
               h('i.fa.fa-chevron-down.fa-lg.network-caret'),
