@@ -66,17 +66,22 @@ export default class Balance extends PureComponent {
               </div>
             )
           }
-          <div className="balance-display__secondary-balance">
-            <span className="xsp" title={ this.formatXSP(account.xsp) }>
-              {this.formatXSP(account.xsp)}
+         
+          <div  className="balance-display__secondary-balance">
+            <span className="xp" title={ this.formatXP(account.xp) }>
+              {this.formatXP(account.xp)}
             </span>
-            <span className="xsp-suffix">
-              XSP
+            <span className="xp-suffix">
+              XP
             </span>
           </div>
         </div>
       </div>
     )
+  }
+
+  formatXP(xp) {
+    return web3.fromWei(xp, "ether");
   }
 
   formatXSP(xsp) {

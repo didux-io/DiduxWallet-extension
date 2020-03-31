@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import isNode from 'detect-node'
 import { findDOMNode } from 'react-dom'
-import jazzicon from '@smilo-platform/smiloicon'
+import jazzicon from '@didux-io/diduxicon'
 import iconFactoryGenerator from '../../../../lib/icon-factory'
 const iconFactory = iconFactoryGenerator(jazzicon)
 

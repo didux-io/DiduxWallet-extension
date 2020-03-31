@@ -232,7 +232,7 @@ export default class ImportWithSeedPhrase extends PureComponent {
           </div>
           <span className="first-time-flow__checkbox-label">
             I have read and agree to the <a
-              href="https://smilo.io/files/general-terms-and-conditions-services.pdf"
+              href="https://didux.io/files/terms-conditions-didux-wallet.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -4,7 +4,7 @@ const h = require('react-hyperscript')
 const inherits = require('util').inherits
 const connect = require('react-redux').connect
 const actions = require('../../../store/actions')
-const smiloExplorerLinker = require('../../../../lib/smilo-explorer-linker')
+const diduxExplorerLinker = require('../../../../lib/didux-explorer-linker')
 const { Menu, Item, CloseArea } = require('./components/menu')
 
 TokenMenuDropdown.contextTypes = {
@@ -60,7 +60,7 @@ TokenMenuDropdown.prototype.render = function () {
       onClick: (e) => {
         e.stopPropagation()
 
-        const url = smiloExplorerLinker.createAccountLink(this.props.token.address, this.props.provider.type);
+        const url = diduxExplorerLinker.createAccountLink(this.props.token.address, this.props.provider.type);
 
         global.platform.openWindow({ url })
         this.props.onClose()

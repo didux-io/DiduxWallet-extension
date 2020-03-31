@@ -474,7 +474,7 @@ function createNewVaultAndRestore (password, seed) {
   }
 }
 
-function createNewVaultAndKeychain (password) {
+function createNewVaultAndKeychain(password) {
   return dispatch => {
     dispatch(actions.showLoadingIndication())
     log.debug(`background.createNewVaultAndKeychain`)
@@ -485,8 +485,6 @@ function createNewVaultAndKeychain (password) {
           dispatch(actions.displayWarning(err.message))
           return reject(err)
         }
-
-        log.debug(`background.placeSeedWords`)
 
         background.placeSeedWords((err) => {
           if (err) {
@@ -557,13 +555,12 @@ function submitPassword (password) {
   })
 }
 
-function createNewVault (password) {
+function createNewVault(password) {
   return new Promise((resolve, reject) => {
     background.createNewVaultAndKeychain(password, error => {
       if (error) {
         return reject(error)
       }
-
       resolve(true)
     })
   })
@@ -1958,7 +1955,7 @@ function setPreviousProvider (type) {
   }
 }
 
-function updateAndSetCustomRpc (newRpc, chainId, ticker = 'XSM', nickname) {
+function updateAndSetCustomRpc (newRpc, chainId, ticker = 'XD', nickname) {
   return (dispatch) => {
     log.debug(`background.updateAndSetCustomRpc: ${newRpc} ${chainId} ${ticker} ${nickname}`)
     background.updateAndSetCustomRpc(newRpc, chainId, ticker, nickname || newRpc, (err, result) => {
@@ -1974,7 +1971,7 @@ function updateAndSetCustomRpc (newRpc, chainId, ticker = 'XSM', nickname) {
   }
 }
 
-function setRpcTarget (newRpc, chainId, ticker = 'XSM', nickname) {
+function setRpcTarget (newRpc, chainId, ticker = 'XD', nickname) {
   return (dispatch) => {
     log.debug(`background.setRpcTarget: ${newRpc} ${chainId} ${ticker} ${nickname}`)
     background.setCustomRpc(newRpc, chainId, ticker, nickname || newRpc, (err, result) => {

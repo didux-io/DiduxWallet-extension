@@ -78,7 +78,7 @@ export default class UnlockPage extends Component {
           eventOpts: {
             category: 'Navigation',
             action: 'Unlock',
-            name: 'Incorrect Passowrd',
+            name: 'Incorrect Password',
           },
           customVariables: {
             numberOfTokens: newState.tokens.length,
@@ -107,7 +107,7 @@ export default class UnlockPage extends Component {
 
   renderSubmitButton () {
     const style = {
-      backgroundColor: '#1983B3',
+      backgroundColor: '#F4623A',
       color: 'white',
       marginTop: '20px',
       height: '60px',
@@ -143,7 +143,7 @@ export default class UnlockPage extends Component {
       <div className="unlock-page__container">
         <div className="unlock-page">
           <div className="unlock-page__mascot-container">
-            <img src="./images/smilo_logo.png"/>
+            <img src="./images/didux_logo.png"/>
           </div>
           <h1 className="unlock-page__title">
             { t('welcomeBack') }

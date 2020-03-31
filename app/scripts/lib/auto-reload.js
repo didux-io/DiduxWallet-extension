@@ -6,7 +6,7 @@ function setupDappAutoReload (web3, observable) {
   let lastTimeUsed
   let lastSeenNetwork
 
-  global.smiloWeb3 = new Proxy(web3, {
+  global.diduxWeb3 = new Proxy(web3, {
     get: (_web3, key) => {
       // get the time of use
       lastTimeUsed = Date.now()
@@ -22,7 +22,7 @@ function setupDappAutoReload (web3, observable) {
   observable.subscribe(function (state) {
     // if the auto refresh on network change is false do not
     // do anything
-    if (!window.smilo.autoRefreshOnNetworkChange) return
+    if (!window.diduxWallet.autoRefreshOnNetworkChange) return
 
     // if reload in progress, no need to check reload logic
     if (reloadInProgress) return

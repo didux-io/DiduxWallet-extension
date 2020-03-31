@@ -105,7 +105,7 @@
     "message": "Add Suggested Tokens"
   },
   "addAcquiredTokens": {
-    "message": "Add the tokens you've acquired using the Smilo Browser Extension"
+    "message": "Add the tokens you've acquired using the Didux.io Browser Extension"
   },
   "agreeTermsOfService": {
     "message": "I agree to the Terms of Service"
@@ -126,11 +126,11 @@
     "message": "Amount + TX Fee"
   },
   "appDescription": {
-    "message": "A Smilo Wallet in your Browser",
+    "message": "A Didux.io Wallet in your Browser",
     "description": "The description of the application"
   },
   "appName": {
-    "message": "Smilo Browser Extension",
+    "message": "Didux.io Browser Extension",
     "description": "The name of the application"
   },
   "approve": {
@@ -192,7 +192,7 @@
     "message": "Your Browser is not supported..."
   },
   "builtInCalifornia": {
-    "message": "Forked from MetaMask by the Smilo team. MetaMask is designed and built in California."
+    "message": "Forked from MetaMask by the Didux.io team. MetaMask is designed and built in California."
   },
   "buy": {
     "message": "Buy"
@@ -252,7 +252,7 @@
     "message": "Close"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "You need to use the Smilo Browser Extension on Google Chrome in order to connect to your Hardware Wallet."
+    "message": "You need to use the Didux.io Browser Extension on Google Chrome in order to connect to your Hardware Wallet."
   },
   "company": {
     "message": "Company"
@@ -300,10 +300,10 @@
     "message": "Connecting to Kovan Test Network"
   },
   "connectingToMainnet": {
-    "message": "Connecting to Smilo Main Network"
+    "message": "Connecting to Didux.io Main Network"
   },
   "connectingToTestnet": {
-    "message": "Connecting to Smilo Test Network"
+    "message": "Connecting to Didux.io Test Network"
   },
   "connectingToRopsten": {
     "message": "Connecting to Ropsten Test Network"
@@ -417,6 +417,9 @@
   "customRPC": {
     "message": "Custom RPC"
   },
+  "smilo": {
+    "message": "Smilo Mainnet"
+  },
   "decimalsMustZerotoTen": {
     "message": "Decimals must be at least 0, and not over 36."
   },
@@ -424,10 +427,10 @@
     "message": "Decimals of Precision"
   },
   "defaultNetwork": {
-    "message": "The default network for Smilo transactions is Smilo Main Network."
+    "message": "The default network for Didux.io transactions is Didux.io Main Network."
   },
   "denExplainer": {
-    "message": "Your DEN is your password-encrypted storage within the Smilo Browser Extension."
+    "message": "Your DEN is your password-encrypted storage within the Didux.io Browser Extension."
   },
   "deposit": {
     "message": "Deposit"
@@ -443,7 +446,7 @@
     "message": "Deposit Eth"
   },
   "depositEther": {
-    "message": "Deposit Smilo"
+    "message": "Deposit Didux.io"
   },
   "depositFiat": {
     "message": "Deposit with Fiat"
@@ -455,7 +458,7 @@
     "message": "Deposit with ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "If you own other cryptocurrencies, you can trade and deposit Smilo directly into your Smilo Browser Extension wallet. No Account Needed."
+    "message": "If you own other cryptocurrencies, you can trade and deposit Didux.io directly into your Didux.io Browser Extension wallet. No Account Needed."
   },
   "details": {
     "message": "Details"
@@ -464,10 +467,10 @@
     "message": "Direct Deposit"
   },
   "directDepositEther": {
-    "message": "Directly Deposit Smilo"
+    "message": "Directly Deposit Didux.io"
   },
   "directDepositEtherExplainer": {
-    "message": "If you already have some Smilo, the quickest way to get Smilo in your new wallet by direct deposit."
+    "message": "If you already have some Didux.io, the quickest way to get Didux.io in your new wallet by direct deposit."
   },
   "done": {
     "message": "Done"
@@ -515,16 +518,16 @@
     "message": "Never share the phrase with anyone."
   },
   "endOfFlowMessage5": {
-    "message": "Be careful of phishing! The Smilo Browser Extension and the Smilo team will never spontaneously ask for your seed phrase."
+    "message": "Be careful of phishing! The Didux.io Browser Extension and the Didux.io team will never spontaneously ask for your seed phrase."
   },
   "endOfFlowMessage6": {
     "message": "If you need to back your up seed phrase again, you can find it in Settings -> Security."
   },
   "endOfFlowMessage7": {
-    "message": "If you ever have questions or see something fishy, email info@smilo.io."
+    "message": "If you ever have questions or see something fishy, email info@didux.io."
   },
   "endOfFlowMessage8": {
-    "message": "The Smilo Browser Extension cannot recover your seedphrase. Learn more."
+    "message": "The Didux.io Browser Extension cannot recover your seedphrase. Learn more."
   },
   "ensNameNotFound": {
     "message": "ENS name not found"
@@ -539,7 +542,7 @@
     "message": "Enter password to continue"
   },
   "eth": {
-    "message": "XSM"
+    "message": "XD"
   },
   "etherscanView": {
     "message": "View account on block explorer"
@@ -656,11 +659,11 @@
     "message": "Generating transaction"
   },
   "getEther": {
-    "message": "Get Smilo"
+    "message": "Get Didux.io"
   },
   "getEtherFromFaucet": {
-    "message": "Get Smilo from a faucet for the $1",
-    "description": "Displays network name for Smilo faucet"
+    "message": "Get Didux.io from a faucet for the $1",
+    "description": "Displays network name for Didux.io faucet"
   },
   "getHelp": {
     "message": "Get Help."
@@ -685,7 +688,7 @@
     "message": "Connect a hardware wallet"
   },
   "hardwareWalletsMsg": {
-    "message": "Select a hardware wallet you'd like to use with the Smilo Browser Extension"
+    "message": "Select a hardware wallet you'd like to use with the Didux.io Browser Extension"
   },
   "havingTroubleConnecting": {
     "message": "Having trouble connecting?"
@@ -713,10 +716,10 @@
     "message": "History"
   },
   "howToDeposit": {
-    "message": "How would you like to deposit Smilo?"
+    "message": "How would you like to deposit Didux.io?"
   },
   "holdEther": {
-    "message": "It allows you to hold Smilo & tokens, and serves as your bridge to decentralized applications."
+    "message": "It allows you to hold Didux.io & tokens, and serves as your bridge to decentralized applications."
   },
   "import": {
     "message": "Import",
@@ -726,7 +729,7 @@
     "message": "Import Account"
   },
   "importAccountMsg": {
-    "message": " Imported accounts will not be associated with your originally created Smilo Browser Extension account seedphrase. Learn more about imported accounts "
+    "message": " Imported accounts will not be associated with your originally created Didux.io Browser Extension account seedphrase. Learn more about imported accounts "
   },
   "importAccountSeedPhrase": {
     "message": "Import an Account with Seed Phrase"
@@ -806,7 +809,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Keep track of the tokens you’ve bought with your Smilo Browser Extension account."
+    "message": "Keep track of the tokens you’ve bought with your Didux.io Browser Extension account."
   },
   "kovan": {
     "message": "Kovan Test Network"
@@ -867,10 +870,10 @@
     "message": "seed words only have lowercase characters"
   },
   "mainnet": {
-    "message": "Smilo Main Network"
+    "message": "Didux.io Main Network"
   },
   "testnet": {
-    "message": "Smilo Test Network"
+    "message": "Didux.io Test Network"
   },
   "memorizePhrase": {
     "message": "Memorize this phrase."
@@ -882,13 +885,13 @@
     "message": "Message"
   },
   "metamaskDescription": {
-    "message": "The Smilo Browser Extension is a secure identity vault for Smilo."
+    "message": "The Didux.io Browser Extension is a secure identity vault for Didux.io."
   },
   "metamaskSeedWords": {
-    "message": "The Smilo Browser Extension Seed Words"
+    "message": "The Didux.io Browser Extension Seed Words"
   },
   "metamaskVersion": {
-    "message": "The Smilo Browser Extension Version"
+    "message": "The Didux.io Browser Extension Version"
   },
   "min": {
     "message": "Minimum"
@@ -912,7 +915,7 @@
     "message": "Must select at least 1 token."
   },
   "needEtherInWallet": {
-    "message": "To interact with decentralized applications using the Smilo Browser Extension, you’ll need Smilo in your wallet."
+    "message": "To interact with decentralized applications using the Didux.io Browser Extension, you’ll need Didux.io in your wallet."
   },
   "needImportFile": {
     "message": "You must select a file to import.",
@@ -923,7 +926,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Can not send negative amounts of XSM."
+    "message": "Can not send negative amounts of XD."
   },
   "networks": {
     "message": "Networks"
@@ -954,7 +957,7 @@
     "message": "New Network"
   },
   "newToMetaMask": {
-    "message": "New to the Smilo Browser Extension?"
+    "message": "New to the Didux.io Browser Extension?"
   },
   "noAlreadyHaveSeed": {
     "message": "No, I already have a seed phrase"
@@ -1035,10 +1038,10 @@
     "message": "You have returned to the old UI. You can switch back to the New UI through the option in the top right dropdown menu."
   },
   "onlySendToEtherAddress": {
-    "message": "Only send XSM to a Smilo address."
+    "message": "Only send XD to a Didux.io address."
   },
   "onlySendTokensToAccountAddress": {
-    "message": "Only send $1 to a Smilo account address.",
+    "message": "Only send $1 to a Didux.io account address.",
     "description": "displays token symbol"
   },
   "openInTab": {
@@ -1115,7 +1118,7 @@
     "message": "Primary Currency"
   },
   "primaryCurrencySettingDescription": {
-    "message": "Select native to prioritize displaying values in the native currency of the chain (e.g. XSM). Select Fiat to prioritize displaying values in your selected fiat currency."
+    "message": "Select native to prioritize displaying values in the native currency of the chain (e.g. XD). Select Fiat to prioritize displaying values in your selected fiat currency."
   },
   "privacyMsg": {
     "message": "Privacy Policy"
@@ -1277,7 +1280,7 @@
     "message": "Your secret backup phrase makes it easy to back up and restore your account."
   },
   "secretBackupPhraseWarning": {
-    "message": "WARNING: Never disclose your backup phrase. Anyone with this phrase can take your Smilo forever."
+    "message": "WARNING: Never disclose your backup phrase. Anyone with this phrase can take your Didux.io forever."
   },
   "secretPhrase": {
     "message": "Enter your secret twelve word phrase here to restore your vault."
@@ -1322,12 +1325,15 @@
     "message": "Send Amount"
   },
   "sendETH": {
-    "message": "Send XSM"
+    "message": "Send XD"
   },
   "sendTokens": {
     "message": "Send Tokens"
   },
   "sentEther": {
+    "message": "sent Didux.io"
+  },
+  "sentSmilo": {
     "message": "sent Smilo"
   },
   "sentTokens": {
@@ -1346,7 +1352,7 @@
     "message": "Select an Account"
   },
   "selectAnAccountHelp": {
-    "message": "Select the account to view in the Smilo Browser Extension"
+    "message": "Select the account to view in the Didux.io Browser Extension"
   },
   "selectAHigherGasFee": {
     "message": "Select a higher gas fee to accelerate the processing of your transaction.*"
@@ -1358,7 +1364,7 @@
     "message": "If you don't see your existing Ledger accounts below, try switching paths to \"Legacy (MEW / MyCrypto)\""
   },
   "sendTokensAnywhere": {
-    "message": "Send Tokens to anyone with an Smilo account"
+    "message": "Send Tokens to anyone with an Didux.io account"
   },
   "settings": {
     "message": "Settings"
@@ -1463,7 +1469,7 @@
     "message": "3. Start using dApps and more!"
   },
   "step3HardwareWalletMsg": {
-    "message": "Use your hardware account like you would with any Smilo account. Log in to dApps, send Eth, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
+    "message": "Use your hardware account like you would with any Didux.io account. Log in to dApps, send Eth, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
   },
   "storePhrase": {
     "message": "Store this phrase in a password manager like 1Password."
@@ -1520,7 +1526,7 @@
     "message": "To"
   },
   "toETHviaShapeShift": {
-    "message": "$1 to XSM via ShapeShift",
+    "message": "$1 to XD via ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "token": {
@@ -1545,7 +1551,7 @@
     "message": "Token Symbol"
   },
   "tokenWarning1": {
-    "message": "Keep track of the tokens you’ve bought with your Smilo Browser Extension account. If you bought tokens using a different account, those tokens will not appear here."
+    "message": "Keep track of the tokens you’ve bought with your Didux.io Browser Extension account. If you bought tokens using a different account, those tokens will not appear here."
   },
   "total": {
     "message": "Total"
@@ -1627,10 +1633,10 @@
     "message": "Try again"
   },
   "twelveWords": {
-    "message": "These 12 words are the only way to restore your Smilo Browser Extension accounts.\nSave them somewhere safe and secret."
+    "message": "These 12 words are the only way to restore your Didux.io Browser Extension accounts.\nSave them somewhere safe and secret."
   },
   "typePassword": {
-    "message": "Type your Smilo Browser Extension password"
+    "message": "Type your Didux.io Browser Extension password"
   },
   "uiMigrationAnnouncement": {
     "message": "Welcome to the new MetaMask UI. If you have feedback about the UI or feature requests, please reach out to our support team or on GitHub."
@@ -1639,7 +1645,7 @@
     "message": "Welcome to the New UI (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "You are now using the new Smilo Browser Extension UI."
+    "message": "You are now using the new Didux.io Browser Extension UI."
   },
   "unapproved": {
     "message": "Unapproved"
@@ -1715,7 +1721,7 @@
     "message": "Welcome Back!"
   },
   "welcome": {
-    "message": "Welcome to the Smilo Browser Extension"
+    "message": "Welcome to the Didux.io Browser Extension"
   },
   "whatsThis": {
     "message": "What's this?"

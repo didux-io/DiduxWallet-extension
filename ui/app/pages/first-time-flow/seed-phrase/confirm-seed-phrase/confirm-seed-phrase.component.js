@@ -40,7 +40,7 @@ export default class ConfirmSeedPhrase extends PureComponent {
   }
 
   handleExport = () => {
-    exportAsFile('Smilo Secret Backup Phrase', this.props.seedPhrase, 'text/plain')
+    exportAsFile('Didux.io Secret Backup Phrase', this.props.seedPhrase, 'text/plain')
   }
 
   handleSubmit = async () => {

@@ -127,7 +127,7 @@ NetworkDropdown.prototype.render = function () {
       [
         providerType === 'mainnet' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
         h(NetworkDropdownIcon, {
-          backgroundColor: '#29B6AF',
+          backgroundColor: '#F4623A',
           isSelected: providerType === 'mainnet',
         }),
         h('span.network-name-item', {
@@ -149,7 +149,7 @@ NetworkDropdown.prototype.render = function () {
       [
         providerType === 'testnet' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
         h(NetworkDropdownIcon, {
-          backgroundColor: '#7057ff',
+          backgroundColor: '#aa4428',
           isSelected: providerType === 'testnet',
         }),
         h('span.network-name-item', {
@@ -157,6 +157,28 @@ NetworkDropdown.prototype.render = function () {
             color: providerType === 'testnet' ? '#ffffff' : '#9b9b9b',
           },
         }, this.context.t('testnet')),
+      ]
+    ),
+
+    h(
+      DropdownMenuItem,
+      {
+        key: 'smilomainnet',
+        closeMenu: () => this.props.hideNetworkDropdown(),
+        onClick: () => this.handleClick('smilomainnet'),
+        style: dropdownMenuItemStyle,
+      },
+      [
+        providerType === 'smilomainnet' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
+        h(NetworkDropdownIcon, {
+          backgroundColor: '#0f728d',
+          isSelected: providerType === 'smilomainnet',
+        }),
+        h('span.network-name-item', {
+          style: {
+            color: providerType === 'smilomainnet' ? '#ffffff' : '#9b9b9b',
+          },
+        }, this.context.t('smilo')),
       ]
     ),
 
@@ -250,7 +272,7 @@ NetworkDropdown.prototype.renderCommonRpc = function (rpcListDetail, provider) {
 
   return reversedRpcListDetail.map((entry) => {
     const rpc = entry.rpcUrl
-    const ticker = entry.ticker || 'XSM'
+    const ticker = entry.ticker || 'XD'
     const nickname = entry.nickname || ''
     const currentRpcTarget = provider.type === 'rpc' && rpc === provider.rpcTarget
 

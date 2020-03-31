@@ -32,7 +32,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://smilowallet.io/#/privacy-policy"
+            href="https://didux.io/files/privacy_policy.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -43,7 +43,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://smilo.io/files/general-terms-and-conditions-services.pdf"
+            href="https://didux.io/files/terms-conditions-didux-wallet.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -66,7 +66,7 @@ export default class InfoTab extends PureComponent {
         <hr className="info-tab__separator" />
         <div className="info-tab__link-item">
           <a
-            href="https://smilo.io/"
+            href="https://didux.io/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -77,7 +77,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="mailto:info@smilo.io?subject=Browser Plugin Feedback"
+            href="mailto:info@didux.io?subject=Browser Plugin Feedback"
             target="_blank"
             rel="noopener noreferrer"
           >

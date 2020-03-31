@@ -6,7 +6,7 @@ const connect = require('react-redux').connect
 const actions = require('../../../store/actions')
 const AccountModalContainer = require('./account-modal-container')
 const { getSelectedIdentity } = require('../../../selectors/selectors')
-const smiloExplorerLinker = require('../../../../lib/smilo-explorer-linker')
+const diduxExplorerLinker = require('../../../../lib/didux-explorer-linker')
 const QrView = require('../../ui/qr-code')
 const EditableLabel = require('../../ui/editable-label')
 
@@ -89,7 +89,7 @@ AccountDetailsModal.prototype.render = function () {
         type: 'primary',
         className: 'account-modal__button',
         onClick: () => {
-          global.platform.openWindow({ url: smiloExplorerLinker.createAccountLink(address, provider.type)})
+          global.platform.openWindow({ url: diduxExplorerLinker.createAccountLink(address, provider.type)})
         },
       }, this.context.t('etherscanView')),
 

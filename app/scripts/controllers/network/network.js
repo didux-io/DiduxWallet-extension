@@ -18,25 +18,29 @@ const {
   MAINNET,
   TESTNET,
   LOCALHOST,
+  SMILOMAINNET,
   MAINNET_CODE,
-  MAINNET_DISPLAY_NAME,
   TESTNET_CODE,
+  MAINNET_DISPLAY_NAME,
+  SMILO_MAINNET_DISPLAY_NAME,
   TESTNET_DISPLAY_NAME,
   MAINNET_END_POINT,
-  TESTNET_END_POINT
+  TESTNET_END_POINT,
+  SMILO_MAINNET_END_POINT,
+  SMILO_MAINNET_CODE
 } = require('./enums')
-const SMILO_PROVIDER_TYPES = [MAINNET, TESTNET]
+const DIDUX_PROVIDER_TYPES = [MAINNET, TESTNET, SMILOMAINNET]
 
 const env = process.env.METAMASK_ENV
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
 
 const defaultProviderConfig = {
   type: MAINNET,
-  ticker: "XSM"
+  ticker: "XD"
 }
 
 const defaultNetworkConfig = {
-  ticker: 'XSM',
+  ticker: 'XD',
 }
 
 module.exports = class NetworkController extends EventEmitter {
@@ -125,7 +129,7 @@ module.exports = class NetworkController extends EventEmitter {
     })
   }
 
-  setRpcTarget (rpcTarget, chainId, ticker = 'XSM', nickname = '') {
+  setRpcTarget (rpcTarget, chainId, ticker = 'XD', nickname = '') {
     const providerConfig = {
       type: 'rpc',
       rpcTarget,
@@ -138,7 +142,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   async setProviderType (type) {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
-    assert(SMILO_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
+    assert(DIDUX_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
     const providerConfig = { type }
     this.providerConfig = providerConfig
   }
@@ -169,16 +173,20 @@ module.exports = class NetworkController extends EventEmitter {
   _configureProvider (opts) {
     const { type, rpcTarget, chainId, ticker, nickname } = opts
 
-    // smilo type-based endpoints
-    const isSmilo = SMILO_PROVIDER_TYPES.includes(type)
-    if (isSmilo) {
+    // didux type-based endpoints
+    const isDidux = DIDUX_PROVIDER_TYPES.includes(type)
+    if (isDidux) {
       switch(type) {
         case(MAINNET): {
-          this._configureStandardProvider({ rpcUrl: MAINNET_END_POINT, chainId: MAINNET_CODE, ticker: "XSM", nickname: MAINNET_DISPLAY_NAME })
+          this._configureStandardProvider({ rpcUrl: MAINNET_END_POINT, chainId: MAINNET_CODE, ticker: "XD", nickname: MAINNET_DISPLAY_NAME })
           break
         }
         case(TESTNET): {
-          this._configureStandardProvider({ rpcUrl: TESTNET_END_POINT, chainId: TESTNET_CODE, ticker: "XSM", nickname: TESTNET_DISPLAY_NAME })
+          this._configureStandardProvider({ rpcUrl: TESTNET_END_POINT, chainId: TESTNET_CODE, ticker: "XD", nickname: TESTNET_DISPLAY_NAME })
+          break
+        }
+        case(SMILOMAINNET): {
+          this._configureStandardProvider({ rpcUrl: SMILO_MAINNET_END_POINT, chainId: SMILO_MAINNET_CODE, ticker: "XSM", nickname: SMILO_MAINNET_DISPLAY_NAME })
           break
         }
       }
@@ -199,7 +207,7 @@ module.exports = class NetworkController extends EventEmitter {
     this._setNetworkClient(networkClient)
     // setup networkConfig
     var settings = {
-      ticker: 'XSM',
+      ticker: 'XD',
     }
     this.networkConfig.putState(settings)
   }
@@ -217,7 +225,7 @@ module.exports = class NetworkController extends EventEmitter {
     networks.networkList['rpc'] = {
       chainId: chainId,
       rpcUrl,
-      ticker: ticker || 'XSM',
+      ticker: ticker || 'XD',
       nickname,
     }
     // setup networkConfig

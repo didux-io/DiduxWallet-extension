@@ -15,11 +15,14 @@ const request = require('request');
 const {
   MAINNET,
   TESTNET,
+  SMILOMAINNET,
   MAINNET_CODE,
+  SMILO_MAINNET_CODE,
   TESTNET_CODE,
   LOCALHOST,
   MAINNET_END_POINT,
-  TESTNET_END_POINT
+  TESTNET_END_POINT,
+  SMILO_MAINNET_END_POINT
 } = require("../controllers/network/enums")
 const Web3 = require('web3')
 const { SINGLE_CALL_BALANCES_ABI } = require('../controllers/network/contract-addresses')
@@ -71,7 +74,7 @@ class AccountTracker {
 
   _extractNetworkUrl(provider) {
     if(!provider) {
-      console.warn("Could not read provider at this time. Is SWE not initialized yet?")
+      console.warn("Could not read provider at this time. Is DWE not initialized yet?")
       return null;
     }
     
@@ -81,6 +84,9 @@ class AccountTracker {
       }
       case(TESTNET): {
         return TESTNET_END_POINT
+      }
+      case(SMILOMAINNET): {
+        return SMILO_MAINNET_END_POINT
       }
       case(LOCALHOST): {
         return "http://localhost:8545"
@@ -224,6 +230,10 @@ class AccountTracker {
       await Promise.all(addresses.map(this._updateAccount.bind(this)))
       break
 
+      case SMILO_MAINNET_CODE:
+      await Promise.all(addresses.map(this._updateAccount.bind(this)))
+      break
+
       default:
       await Promise.all(addresses.map(this._updateAccount.bind(this)))
     }
@@ -240,10 +250,10 @@ class AccountTracker {
   async _updateAccount (address) {
     // query balance
     const balance = await this._query.getBalance(address)
-    // query xsp
-    const xsp = await this._getXSPBalance(address)
+    // query xp
+    const xp = await this._getXPBalance(address)
 
-    const result = { address, balance, xsp }
+    const result = { address, balance, xp }
     // update accounts state
     const { accounts } = this.store.getState()
     // only populate if the entry is still present
@@ -252,9 +262,9 @@ class AccountTracker {
     this.store.updateState({ accounts })
   }
 
-  async _getXSPBalance (address) {
+  async _getXPBalance (address) {
     if(!this._rpcTarget) {
-      console.warn('No rpc target defined, could not read XPS')
+      console.warn('No rpc target defined, could not read XP')
       return "0"
     }
 

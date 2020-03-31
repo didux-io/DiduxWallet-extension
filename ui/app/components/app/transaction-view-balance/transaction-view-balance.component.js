@@ -33,7 +33,7 @@ export default class TransactionViewBalance extends PureComponent {
   }
 
   renderBalance () {
-    const { selectedToken, balance, xsp, balanceIsCached, showFiat } = this.props
+    const { selectedToken, balance, xp, balanceIsCached, showFiat } = this.props
 
     return selectedToken
       ? (
@@ -83,8 +83,8 @@ export default class TransactionViewBalance extends PureComponent {
                     )
                   }
                   <div className="transaction-view-balance__secondary-balance">
-                    <span className="xsp" title={ this.formatXSP(xsp) }>{ this.formatXSP(xsp) }</span>
-                    <span className="xsp-suffix">XSP</span>
+                    <span className="xp" title={ this.formatXP(xp) }>{ this.formatXP(xp) }</span>
+                    <span className="xp-suffix">XP</span>
                   </div>
                 </div>
             </div>
@@ -92,8 +92,8 @@ export default class TransactionViewBalance extends PureComponent {
       )
   }
 
-  formatXSP(xsp) {
-    return web3.fromWei(xsp, "ether");
+  formatXP(xp) {
+    return web3.fromWei(xp, "ether");
   }
 
   renderButtons () {

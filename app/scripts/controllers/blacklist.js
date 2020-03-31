@@ -10,7 +10,7 @@ const POLLING_INTERVAL = 4 * 60 * 1000
 
 const LIST_URLS = [
   "https://api.infura.io/v2/blacklist",
-  "https://raw.githubusercontent.com/Smilo-platform/SmiloWallet-extension/develop/app/phishing-config.json"
+  "https://raw.githubusercontent.com/didux-io/DiduxWallet-extension/develop/app/phishing-config.json"
 ]
 
 class BlacklistController {

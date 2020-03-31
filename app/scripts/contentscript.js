@@ -42,7 +42,7 @@ function injectScript (content) {
     container.insertBefore(scriptTag, container.children[0])
     container.removeChild(scriptTag)
   } catch (e) {
-    console.error('SWE script injection failed', e)
+    console.error('DWE script injection failed', e)
   }
 }
 
@@ -53,8 +53,8 @@ function injectScript (content) {
 function setupStreams () {
   // setup communication to page and plugin
   const pageStream = new LocalMessageDuplexStream({
-    name: 'swe_contentscript',
-    target: 'swe_inpage',
+    name: 'dwe_contentscript',
+    target: 'dwe_inpage',
   })
   const pluginPort = extension.runtime.connect({ name: 'contentscript' })
   const pluginStream = new PortStream(pluginPort)
@@ -76,7 +76,7 @@ function setupStreams () {
     pluginStream,
     approvalTransform,
     pageStream,
-    (err) => logStreamDisconnectWarning('SWE Contentscript Forwarding', err)
+    (err) => logStreamDisconnectWarning('DWE Contentscript Forwarding', err)
   )
 
   // setup local multistream channels
@@ -87,13 +87,13 @@ function setupStreams () {
     mux,
     pageStream,
     mux,
-    (err) => logStreamDisconnectWarning('SWE Inpage', err)
+    (err) => logStreamDisconnectWarning('DWE Inpage', err)
   )
   pump(
     mux,
     pluginStream,
     mux,
-    (err) => logStreamDisconnectWarning('SWE Background', err)
+    (err) => logStreamDisconnectWarning('DWE Background', err)
   )
 
   // connect ping stream
@@ -102,7 +102,7 @@ function setupStreams () {
     mux,
     pongStream,
     mux,
-    (err) => logStreamDisconnectWarning('SWE PingPongStream', err)
+    (err) => logStreamDisconnectWarning('DWE PingPongStream', err)
   )
 
   // connect phishing warning stream
@@ -124,7 +124,7 @@ function listenForProviderRequest () {
   window.addEventListener('message', ({ source, data }) => {
     if (source !== window || !data || !data.type) { return }
     switch (data.type) {
-      case 'SMILO_ENABLE_PROVIDER':
+      case 'DIDUX_ENABLE_PROVIDER':
         extension.runtime.sendMessage({
           action: 'init-provider-request',
           force: data.force,
@@ -133,13 +133,13 @@ function listenForProviderRequest () {
           siteTitle: getSiteName(source),
         })
         break
-      case 'SMILO_IS_APPROVED':
+      case 'DIDUX_IS_APPROVED':
         extension.runtime.sendMessage({
           action: 'init-is-approved',
           origin: source.location.hostname,
         })
         break
-      case 'SWE_IS_UNLOCKED':
+      case 'DWE_IS_UNLOCKED':
         extension.runtime.sendMessage({
           action: 'init-is-unlocked',
         })
@@ -151,30 +151,30 @@ function listenForProviderRequest () {
     switch (action) {
       case 'approve-provider-request':
         isEnabled = true
-        window.postMessage({ type: 'smiloprovider', selectedAddress }, '*')
+        window.postMessage({ type: 'diduxprovider', selectedAddress }, '*')
         break
       case 'approve-legacy-provider-request':
         isEnabled = true
-        window.postMessage({ type: 'smiloroviderlegacy', selectedAddress }, '*')
+        window.postMessage({ type: 'diduxroviderlegacy', selectedAddress }, '*')
         break
       case 'reject-provider-request':
-        window.postMessage({ type: 'smiloprovider', error: 'User denied account authorization' }, '*')
+        window.postMessage({ type: 'diduxprovider', error: 'User denied account authorization' }, '*')
         break
       case 'answer-is-approved':
-        window.postMessage({ type: 'smiloisapproved', isApproved, caching }, '*')
+        window.postMessage({ type: 'diduxisapproved', isApproved, caching }, '*')
         break
       case 'answer-is-unlocked':
-        window.postMessage({ type: 'sweisunlocked', isUnlocked }, '*')
+        window.postMessage({ type: 'dweisunlocked', isUnlocked }, '*')
         break
-      case 'swe-set-locked':
+      case 'dwe-set-locked':
         isEnabled = false
-        window.postMessage({ type: 'swesetlocked' }, '*')
+        window.postMessage({ type: 'dwesetlocked' }, '*')
         break
       case 'ethereum-ping-success':
-        window.postMessage({ type: 'swepingsuccess' }, '*')
+        window.postMessage({ type: 'dwepingsuccess' }, '*')
         break
       case 'ethereum-ping-error':
-        window.postMessage({ type: 'swepingerror' }, '*')
+        window.postMessage({ type: 'dwepingerror' }, '*')
     }
   })
 }
@@ -194,7 +194,7 @@ function checkPrivacyMode () {
  * @param {Error} err Stream connection error
  */
 function logStreamDisconnectWarning (remoteLabel, err) {
-  let warningMsg = `SmiloWalletExtensionContentscript - lost connection to ${remoteLabel}`
+  let warningMsg = `DiduxWalletExtensionContentscript - lost connection to ${remoteLabel}`
   if (err) warningMsg += '\n' + err.stack
   console.warn(warningMsg)
 }

@@ -20,7 +20,7 @@ const createOriginMiddleware = require('./lib/createOriginMiddleware')
 const createLoggerMiddleware = require('./lib/createLoggerMiddleware')
 const providerAsMiddleware = require('eth-json-rpc-middleware/providerAsMiddleware')
 const {setupMultiplex} = require('./lib/stream-utils.js')
-const KeyringController = require('@smilo-platform/eth-keyring-controller')
+const KeyringController = require('@didux-io/didux-keyring-controller')
 const NetworkController = require('./controllers/network')
 const PreferencesController = require('./controllers/preferences')
 const CurrencyController = require('./controllers/currency')
@@ -57,6 +57,8 @@ const { AddressBookController } = require('gaba')
 
 
 module.exports = class MetamaskController extends EventEmitter {
+
+  password;
 
   /**
    * @constructor
@@ -491,7 +493,8 @@ module.exports = class MetamaskController extends EventEmitter {
    *
    * @returns {Object} vault
    */
-  async createNewVaultAndKeychain (password) {
+  async createNewVaultAndKeychain(password) {
+    this.password = password;
     const releaseLock = await this.createVaultMutex.acquire()
     try {
       let vault
@@ -518,16 +521,18 @@ module.exports = class MetamaskController extends EventEmitter {
    * @param  {} seed
    */
   async createNewVaultAndRestore (password, seed) {
+    this.password = password;
     const releaseLock = await this.createVaultMutex.acquire()
     try {
       let accounts, lastBalance
 
       const keyringController = this.keyringController
 
+      
       // clear known identities
       this.preferencesController.setAddresses([])
       // create new vault
-      const vault = await keyringController.createNewVaultAndRestore(password, seed)
+      const vault = await keyringController.createNewVaultAndRestore(password, seed);
 
       const ethQuery = new EthQuery(this.provider)
       accounts = await keyringController.getAccounts()
@@ -643,6 +648,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * @returns {Promise<object>} - The keyringController update.
    */
   async submitPassword (password) {
+    this.password = password;
     await this.keyringController.submitPassword(password)
     const accounts = await this.keyringController.getAccounts()
 
@@ -858,7 +864,7 @@ module.exports = class MetamaskController extends EventEmitter {
     }
 
     try {
-      await seedPhraseVerifier.verifyAccounts(accounts, seedWords)
+      await seedPhraseVerifier.verifyAccounts(this.password, accounts, seedWords)
       return seedWords
     } catch (err) {
       log.error(err.message)
@@ -1520,7 +1526,7 @@ module.exports = class MetamaskController extends EventEmitter {
       this.currencyController.setCurrentCurrency(currencyCode)
       this.currencyController.updateConversionRate()
       const data = {
-        nativeCurrency: ticker || 'XSM',
+        nativeCurrency: ticker || 'XD',
         conversionRate: this.currencyController.getConversionRate(),
         currentCurrency: this.currencyController.getCurrentCurrency(),
         conversionDate: this.currencyController.getConversionDate(),
@@ -1579,7 +1585,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * @param {string} nickname - Optional nickname of the selected network.
    * @returns {Promise<String>} - The RPC Target URL confirmed.
    */
-  async setCustomRpc (rpcTarget, chainId, ticker = 'XSM', nickname = '') {
+  async setCustomRpc (rpcTarget, chainId, ticker = 'XD', nickname = '') {
     const frequentRpcListDetail = this.preferencesController.getFrequentRpcListDetail()
     const rpcSettings = frequentRpcListDetail.find((rpc) => rpcTarget === rpc.rpcUrl)
 

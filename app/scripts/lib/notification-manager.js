@@ -12,7 +12,7 @@ class NotificationManager {
    */
 
   /**
-   * Either brings an existing SmiloWallet Extension window into focus, or creates a new notification window. New
+   * Either brings an existing DiduxWallet Extension window into focus, or creates a new notification window. New
    * notification windows are given a 'popup' type.
    *
    */
@@ -44,7 +44,7 @@ class NotificationManager {
   }
 
   /**
-   * Closes a SmiloWallet Extension notification if it window exists.
+   * Closes a DiduxWallet Extension notification if it window exists.
    *
    */
   closePopup () {

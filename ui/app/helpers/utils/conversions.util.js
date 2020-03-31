@@ -52,12 +52,12 @@ export function getValueFromWeiHex ({
   numberOfDecimals,
   toDenomination,
 }) {
-  // The below values will be passed as XSM but should be treated as ETH
-  if(fromCurrency == "XSM")
+  // The below values will be passed as XD but should be treated as ETH
+  if(fromCurrency == "XD")
     fromCurrency = "ETH";
-  if(toCurrency == "XSM")
+  if(toCurrency == "XD")
     toCurrency = "ETH";
-  if(toDenomination == "XSM")
+  if(toDenomination == "XD")
     toDenomination = "ETH";
 
   return conversionUtil(value, {

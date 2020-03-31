@@ -1,5 +1,5 @@
 const protocol = "https://";
-const baseExplorerLink = "explorer.smilo.network";
+const baseExplorerLink = "explorer.didux.network";
   
 function createTxLink(hash, networkType) {
     return `${ getBaseUrl(networkType) }/tx/${ hash }`

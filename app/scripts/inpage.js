@@ -38,13 +38,13 @@ function onMessage (messageType, callback, remove) {
 //
 
 // setup background connection
-var sweStream = new LocalMessageDuplexStream({
-  name: 'swe_inpage',
-  target: 'swe_contentscript',
+var dweStream = new LocalMessageDuplexStream({
+  name: 'dwe_inpage',
+  target: 'dwe_contentscript',
 })
 
 // compose the inpage provider
-var inpageProvider = new MetamaskInpageProvider(sweStream)
+var inpageProvider = new MetamaskInpageProvider(dweStream)
 
 // set a high max listener count to avoid unnecesary warnings
 inpageProvider.setMaxListeners(100)
@@ -53,7 +53,7 @@ inpageProvider.setMaxListeners(100)
 onMessage('swesetlocked', () => { isEnabled = false })
 
 // set up a listener for privacy mode responses
-onMessage('smiloproviderlegacy', ({ data: { selectedAddress } }) => {
+onMessage('diduxproviderlegacy', ({ data: { selectedAddress } }) => {
   isEnabled = true
   setTimeout(() => {
     inpageProvider.publicConfigStore.updateState({ selectedAddress })
@@ -86,8 +86,8 @@ inpageProvider.enable = function ({ force } = {}) {
         })
       }
     }
-    onMessage('smiloprovider', providerHandle, true)
-    window.postMessage({ type: 'SMILO_ENABLE_PROVIDER', force }, '*')
+    onMessage('diduxprovider', providerHandle, true)
+    window.postMessage({ type: 'DIDUX_ENABLE_PROVIDER', force }, '*')
   })
 }
 
@@ -96,7 +96,7 @@ inpageProvider.enable = function ({ force } = {}) {
 inpageProvider.autoRefreshOnNetworkChange = true
 
 // add metamask-specific convenience methods
-inpageProvider._smiloWalletExtension = new Proxy({
+inpageProvider._diduxWalletExtension = new Proxy({
   /**
    * Determines if this domain is currently enabled
    *
@@ -120,8 +120,8 @@ inpageProvider._smiloWalletExtension = new Proxy({
           resolve(false)
         }
       }
-      onMessage('smiloisapproved', isApprovedHandle, true)
-      window.postMessage({ type: 'SMILO_IS_APPROVED' }, '*')
+      onMessage('diduxisapproved', isApprovedHandle, true)
+      window.postMessage({ type: 'DIDUX_IS_APPROVED' }, '*')
     })
   },
 
@@ -136,14 +136,14 @@ inpageProvider._smiloWalletExtension = new Proxy({
         resolve(!!isUnlocked)
       }
       onMessage('sweisunlocked', isUnlockedHandle, true)
-      window.postMessage({ type: 'SWE_IS_UNLOCKED' }, '*')
+      window.postMessage({ type: 'DWE_IS_UNLOCKED' }, '*')
     })
   },
 }, {
   get: function (obj, prop) {
-    !warned && console.warn('Heads up! smilo._smiloWalletExtension exposes methods that have ' +
+    !warned && console.warn('Heads up! didux._diduxWalletExtension exposes methods that have ' +
     'not been standardized yet. This means that these methods may not be implemented ' +
-    'in other dapp browsers and may be removed from the Smilo Wallet Extension in the future.')
+    'in other dapp browsers and may be removed from the Didux.io Wallet Extension in the future.')
     warned = true
     return obj[prop]
   },
@@ -157,14 +157,14 @@ const proxiedInpageProvider = new Proxy(inpageProvider, {
   deleteProperty: () => true,
 })
 
-window.smilo = createStandardProvider(proxiedInpageProvider)
+window.diduxWallet = createStandardProvider(proxiedInpageProvider)
 
 // detect eth_requestAccounts and pipe to enable for now
 function detectAccountRequest (method) {
   const originalMethod = inpageProvider[method]
   inpageProvider[method] = function ({ method }) {
     if (method === 'eth_requestAccounts') {
-      return window.smilo.enable()
+      return window.diduxWallet.enable()
     }
     return originalMethod.apply(this, arguments)
   }
@@ -176,21 +176,21 @@ detectAccountRequest('sendAsync')
 // setup web3
 //
 
-if (typeof window.smiloWeb3 !== 'undefined') {
-  throw new Error(`The Smilo Wallet Extension detected another smiloWeb3.
-     the Smilo Wallet Extension will not work reliably with another smiloWeb3 extension.
+if (typeof window.diduxWeb3 !== 'undefined') {
+  throw new Error(`The Didux.io Wallet Extension detected another diduxWeb3.
+     the Didux.io Wallet Extension will not work reliably with another diduxWeb3 extension.
      This usually happens if you have two MetaMasks installed,
-     or the Smilo Wallet Extension and another smiloWeb3 extension. Please remove one
+     or the Didux.io Wallet Extension and another diduxWeb3 extension. Please remove one
      and try again.`)
 }
 
-var smiloWeb3 = new Web3(proxiedInpageProvider)
-smiloWeb3.setProvider = function () {
-  log.debug('Smilo Wallet Extension - overrode smiloWeb3.setProvider')
+var diduxWeb3 = new Web3(proxiedInpageProvider)
+diduxWeb3.setProvider = function () {
+  log.debug('Didux.io Wallet Extension - overrode diduxWeb3.setProvider')
 }
-log.debug('Smilo Wallet Extension - injected smiloWeb3')
+log.debug('Didux.io Wallet Extension - injected diduxWeb3')
 
-setupDappAutoReload(smiloWeb3, inpageProvider.publicConfigStore)
+setupDappAutoReload(diduxWeb3, inpageProvider.publicConfigStore)
 
 // export global web3, with usage-detection and deprecation warning
 
@@ -215,7 +215,7 @@ global.web3 = new Proxy(web3, {
 
 // set web3 defaultAccount
 inpageProvider.publicConfigStore.subscribe(function (state) {
-  smiloWeb3.eth.defaultAccount = state.selectedAddress
+  diduxWeb3.eth.defaultAccount = state.selectedAddress
 })
 
 // need to make sure we aren't affected by overlapping namespaces
@@ -233,7 +233,7 @@ function cleanContextForImports () {
   try {
     global.define = undefined
   } catch (_) {
-    console.warn('Smilo Wallet Extension - global.define could not be deleted.')
+    console.warn('Didux.io Wallet Extension - global.define could not be deleted.')
   }
 }
 
@@ -244,6 +244,6 @@ function restoreContextAfterImports () {
   try {
     global.define = __define
   } catch (_) {
-    console.warn('Smilo Wallet Extension - global.define could not be overwritten.')
+    console.warn('Didux.io Wallet Extension - global.define could not be overwritten.')
   }
 }

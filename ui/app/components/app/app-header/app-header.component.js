@@ -95,12 +95,12 @@ export default class AppHeader extends PureComponent {
           >
             <img
               className="app-header__metafox-logo app-header__metafox-logo--horizontal"
-              src="/images/logo/smilowallet-logo-horizontal.svg"
+              src="/images/logo/diduxwallet-logo-horizontal.png"
               height={30}
             />
             <img
               className="app-header__metafox-logo app-header__metafox-logo--icon"
-              src="/images/logo/smilowallet-extension.svg"
+              src="/images/logo/diduxwallet-extension.png"
               height={42}
               width={42}
             />

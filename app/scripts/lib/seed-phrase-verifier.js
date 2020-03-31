@@ -1,4 +1,4 @@
-const KeyringController = require('@smilo-platform/eth-keyring-controller')
+const KeyringController = require('@didux-io/didux-keyring-controller')
 const log = require('loglevel')
 
 const seedPhraseVerifier = {
@@ -16,7 +16,7 @@ const seedPhraseVerifier = {
    * @returns {Promise<void>} Promises undefined
    *
   */
-  verifyAccounts (createdAccounts, seedWords) {
+  verifyAccounts (password, createdAccounts, seedWords) {
 
     return new Promise((resolve, reject) => {
 
@@ -29,7 +29,8 @@ const seedPhraseVerifier = {
       const opts = {
         mnemonic: seedWords,
         numberOfAccounts: createdAccounts.length,
-        hdPath: "m/44'/20080914'/0'/0"
+        hdPath: "m/44'/20200101'/0'/0",
+        passphrase: password
       }
 
       const keyring = new Keyring(opts)

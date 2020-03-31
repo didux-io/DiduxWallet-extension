@@ -32,7 +32,7 @@ export default class SeedPhrase extends PureComponent {
         <div className="app-header__logo-container">
           <img
             className="app-header__metafox-logo app-header__metafox-logo--horizontal"
-            src="/images/logo/smilowallet-extension.svg"
+            src="/images/logo/diduxwallet-extension.png"
             height={30}
           />
         </div>
