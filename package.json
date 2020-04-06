@@ -189,11 +189,11 @@
     "xtend": "^4.0.2"
   },
   "devDependencies": {
+    "@babel/runtime": "7.0.0-beta.55",
     "@sentry/cli": "^1.49.0",
     "@storybook/addon-info": "^3.4.12",
     "@storybook/addon-knobs": "^3.4.12",
     "@storybook/react": "^3.4.12",
-    "@babel/runtime": "7.0.0-beta.55",
     "addons-linter": "^1.17.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
@@ -269,7 +269,7 @@
     "mocha-jsdom": "^1.2.0",
     "mocha-sinon": "^2.1.0",
     "nock": "^9.6.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "nyc": "^13.3.0",
     "path": "^0.12.7",
     "png-file-stream": "^1.2.1",
