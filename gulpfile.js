@@ -25,6 +25,7 @@ const uglify = require('gulp-uglify-es').default
 const pify = require('pify')
 const gulpMultiProcess = require('gulp-multi-process')
 const endOfStream = pify(require('end-of-stream'))
+const replace = require('gulp-replace')
 
 const packageJSON = require('./package.json')
 const dependencies = Object.keys(packageJSON && packageJSON.dependencies || {})
@@ -607,6 +608,10 @@ function bundleTask (opts) {
       buildStream = buildStream
         .pipe(sourcemaps.write(opts.sourceMapDir))
     }
+
+    // Prevent absolute paths in JS files
+    replaceDir = path.join(__dirname)
+    buildStream = buildStream.pipe(replace(replaceDir, './'))
 
     // write completed bundles
     opts.destinations.forEach((dest) => {
