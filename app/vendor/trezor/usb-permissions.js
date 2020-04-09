@@ -35,16 +35,4 @@ const switchToPopupTab = (event) => {
   });
 }
 
-window.addEventListener('message', event => {
-  if (event.data === 'usb-permissions-init') {
-      const iframe = document.getElementById('trezor-usb-permissions');
-      iframe.contentWindow.postMessage({
-          type: 'usb-permissions-init',
-          extension: chrome.runtime.id,
-      }, '*');
-  } else if (event.data === 'usb-permissions-close') {
-      switchToPopupTab();
-  }
-});
-
 window.addEventListener('beforeunload', switchToPopupTab);
